@@ -15,6 +15,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.7.2/js/all.js"></script>
+    
+
   </head>
 
   <body>
@@ -22,8 +24,39 @@
 
     <div class="container">
       <%= render 'layouts/flash_messages' %>
-
-      <%= yield %>
+    </div>
+    
+    <!-- index -->
+    <%= yield %>
+    
+    <!-- 基本的な構造 | 上部タイトル画面より下 -->
+    <div class="container-fluid">
+      <div class="row">
+        
+        <div class="basic col bg-dark">
+          <div class="row justify-content-end">
+            <div class="posts bg-warning">TEST</div>
+            <div class="posts bg-success">TEST</div>
+            <div class="posts bg-warning">TEST</div>
+            <div class="posts bg-warning">TEST</div>
+            <div class="posts bg-success">TEST</div>
+            <div class="posts bg-warning">TEST</div>
+            <div class="posts bg-success">TEST</div>
+            <div class="posts bg-warning">TEST</div>
+          </div>
+        </div>
+        <div class="basic col-md-auto bg-dark">
+          <div class="row">
+            <div class="profile_backgroud bg-warning">
+              <div class="profile_image"></div>
+              <h2 class="user_name">ユーザ名</h2>
+              <div class="button_follow">
+                <button class="btn btn-primary btn-block">フォローする</button> <!-- テストボタン用 -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </body>
 </html>
