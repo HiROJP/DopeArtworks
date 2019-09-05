@@ -27,12 +27,8 @@
         <div class="basic col-md-auto bg-dark">
           <div class="row">
             <div class="profile_backgroud bg-warning">
-              <!-- ユーザ情報 -->
-              <div class="profile_image"></div>
-              <h2 class="user_name">ユーザ名</h2>
-              <div class="button_follow">
-                <button class="btn btn-primary btn-block">フォローする</button> <!-- テストボタン用 -->
-              </div>
+              <!-- 右側のユーザ情報 -->
+              <%= render 'users/users_deta', users: @users %>
             </div>
           </div>
         </div>
