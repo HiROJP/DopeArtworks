@@ -13,6 +13,7 @@
 
 .basic {
     height:auto;
+    min-height: 1000px;
     padding: 20px 50px;
     border: 1px solid #FFFFFF; /* テスト用 */
 }
