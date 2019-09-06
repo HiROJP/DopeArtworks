@@ -1,6 +1,21 @@
-<!-- ユーザ情報  -->
-<div class="profile_image"></div>
-<h2 class="user_name"><%= current_user %></h2>
-<div class="button_follow">
-<button class="btn btn-primary btn-block">フォローする</button> <!-- テストボタン用 -->
-</div>
+
+<% if logged_in? %>
+  <!-- ユーザ情報  -->
+  <!-- 問題: ログイン時じゃないとIDを取得できないためエラーが出る -->
+  <div class="profile_image"><img class="mr-2 rounded" src="<%= gravatar_url(current_user, { size: 350 }) %>" alt=""></div>
+  <h2 class="user_name"><%= current_user.name %></h2>
+  <div class="button_follow">
+  <button class="btn btn-primary btn-block">フォローする</button> <!-- テストボタン用 -->
+  </div>
+  
+<% else %>
+  <div class="nologin_top_image">
+    <div class="nologin_top_text">
+      <h2 class="text-white">DopeArtworksへようこそ！</h2>
+      <div class="button_follow">
+        <%= link_to '新規登録', signup_path, class: 'btn btn-lg btn-primary' %>
+      </div>
+    </div>
+  </div>
+  
+<% end %>
