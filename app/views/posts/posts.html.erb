@@ -1,1 +1,9 @@
+<% content_for(:header) do %>
+    <%= render 'layouts/header_background' %>
+<% end %>
+
+<%# content_for(:side_user) do %>
+    <%#= render 'users/users_deta',user: current_user %>
+<%# end %>
+
 <%= render 'posts', posts: @posts %>

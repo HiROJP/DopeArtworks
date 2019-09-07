@@ -9,27 +9,46 @@
     <%= render 'layouts/navbar' %>
 
     <div class="container">
-      <%= render 'layouts/flash_messages' %>
+      <%#= render 'layouts/flash_messages' %>
     </div>
     
     <!-- index -->
-    
+    <%= yield :header %>
     
     <!-- 基本的な構造 | 上部タイトル画面より下 -->
     <div class="container-fluid">
-      <%= render 'layouts/flash_messages' %>
+
       <div class="row">
         <div class="basic col bg-dark">
           <div class="row">
             <!-- 各ページが表示される -->
             <%= yield %>
+            
           </div>
         </div>
         <div class="basic col-md-auto bg-dark">
           <div class="row">
             <div class="profile_backgroud bg-warning">
+              
               <!-- 右側のユーザ情報 -->
-              <%= render 'users/users_deta' %>
+              
+              <% if content_for?(:side_user) && logged_in? %>
+                <%= render 'users/users_deta', user: @user %>
+                
+              <% elsif logged_in? %>
+                <%= render 'users/users_deta', user: current_user %>
+                
+              <% else %>
+                <!-- 非ログイン時の新規登録案内 -->
+                <div class="nologin_top_image">
+                  <div class="nologin_top_text">
+                    <h2 class="text-white">DopeArtworksへようこそ！</h2>
+                    <div class="button_follow">
+                      <%= link_to '新規登録', signup_path, class: 'btn btn-lg btn-primary' %>
+                    </div>
+                  </div>
+                </div>
+              <% end %>
             </div>
           </div>
         </div>
