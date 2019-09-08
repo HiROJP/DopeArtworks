@@ -2,8 +2,30 @@
     <%= render 'layouts/header_background' %>
 <% end %>
 
-<%# content_for(:side_user) do %>
-    <%#= render 'users/users_deta',user: current_user %>
-<%# end %>
+<%#= render 'posts', posts: @posts %>
 
-<%= render 'posts', posts: @posts %>
+<!-- --------------------------------- -->
+
+<% if logged_in? %>
+  <div class="row">
+    <aside class="col-sm-4">
+      <%= form_with(model: @post, local: true) do |f| %>
+        <div class="form-group">
+          <%= f.text_area :content, class: 'form-control', rows: 5 %>
+          <%= f.file_field :image %>
+        </div>
+        <%= f.submit 'Post', class: 'btn btn-primary btn-block' %>
+      <% end %>
+    </aside>
+    <div class="col-sm-8">
+      <%= render 'posts/posts', posts: @posts %>
+    </div>
+  </div>
+<% else %>
+  <div class="center jumbotron">
+    <div class="text-center">
+      <h1>Welcome to the Posts</h1>
+      <%= link_to 'Sign up now!', signup_path, class: 'btn btn-lg btn-primary' %>
+    </div>
+  </div>
+<% end %>
