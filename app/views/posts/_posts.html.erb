@@ -7,30 +7,40 @@
 <div class="posts bg-warning">TEST</div>
 <div class="posts bg-success">TEST</div>
 <div class="posts bg-warning">TEST</div>
+
+
+<div>
+  <%#= link_to post.user.name, user_path(post.user) %> <span class="text-muted">posted at <%#= post.created_at %></span>
+</div>
 -->
 
-<ul class="list-unstyled">
-  <% posts.each do |post| %>
+
+
+<% posts.each do |post| %>
+  <div class="posts bg-warning">
     <li class="media mb-3">
-      <img class="mr-2 rounded" src="<%= gravatar_url(post.user, { size: 50 }) %>" alt="">
       <div class="media-body">
-        <div>
-          <%= link_to post.user.name, user_path(post.user) %> <span class="text-muted">posted at <%= post.created_at %></span>
-        </div>
-        <div>
-          <p><%= post.content %></p>
-        </div>
-        <div>
-          <% if current_user == post.user %>
-            <%= link_to "Delete", post, method: :delete, data: { confirm: "You sure?" }, class: 'btn btn-danger btn-sm' %>
-          <% end %>
-        </div>
         <% if post.image? %>
-          <%= image_tag post.image.url %>
+          <%= link_to(post) do %>
+            <div class="posts_image">
+              <%= image_tag post.image.url(:thumb) %>
+            </div>
+          <% end %>
         <% end %>
+        <div class="posts_text text-white">
+          <h2><%= post.content %></h2> 
+        </div>
+        <ul class="posts_deta">
+          <li><span class="text-muted">投稿者: <%= post.user.name %></span></li>
+          <li><span class="text-muted">投稿日: <%= post.created_at %></span></li>
+        </ul>
+        <div class="posts_icon">
+          <%= link_to "詳細", post, class: 'btn btn-primary' %>
+        </div>
       </div>
     </li>
-  <% end %>
-  <%= paginate posts %>
-</ul>
+  </div>
+<% end %>
+<%= paginate posts %>
+
 

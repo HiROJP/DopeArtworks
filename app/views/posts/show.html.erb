@@ -1,0 +1,25 @@
+<% provide :side_user, "side_user" %>
+
+<div class="show bg-warning">
+  <div>
+    <div class="show_text">
+      <h1 class="text-white"><%= @post.content %></h1> 
+      <div>
+        <span class="text-muted">投稿日: <%= @post.created_at %></span>
+        <% if current_user == @post.user %>
+            <%= link_to "削除", @post, method: :delete, data: { confirm: "You sure?" }, class: 'btn btn-danger btn-sm' %>
+        <% end %>
+      </div>
+    </div>
+    <div class="show_image">
+      <%= image_tag @post.image.url %>
+    </div>
+  </div>
+  <div class="show_side">
+    <div class="show_side_text">
+      <i class="fas fa-heart fa-3x my-gray"></i>
+      <p class="show_side_text2">0</p>
+    </div>
+  </div>
+</div>
+

@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   root to: 'posts#posts'
   get 'posts', to: 'posts#posts'
+  get 'new', to: 'posts#new'
+ 
   
   get 'login', to: 'sessions#new'
   post 'login', to: 'sessions#create'
@@ -15,5 +17,5 @@ Rails.application.routes.draw do
   end
   
   resources :relationships, only: [:create, :destroy]
-  resources :posts, only: [:create, :destroy]
+  resources :posts, only: [:create, :destroy, :show]
 end

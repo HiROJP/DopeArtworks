@@ -61,6 +61,8 @@ gem 'carrierwave'
 
 gem 'rmagick'
 
+
+
 group :development, :test do
   gem 'pry-rails'  # rails console(もしくは、rails c)でirbの代わりにpryを使われる
   gem 'pry-doc'    # methodを表示

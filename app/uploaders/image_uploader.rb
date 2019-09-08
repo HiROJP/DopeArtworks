@@ -7,7 +7,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   
   # リサイズしたり画像形式を変更するのに必要
   include CarrierWave::RMagick
-  process :resize_to_limit => [640, 480]
+  process :resize_to_limit => [1280, 1024]
   process :convert => 'jpg'
   
   def extension_whitelist
@@ -20,6 +20,10 @@ class ImageUploader < CarrierWave::Uploader::Base
   
   def filename
     "#{secure_token}.#{file.extension}" if original_filename.present?
+  end
+  
+  version :thumb do
+    process :resize_to_fill => [300, 300]
   end
 
   protected

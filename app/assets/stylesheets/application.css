@@ -1,3 +1,11 @@
+ul{
+    padding : 0;
+}
+
+li {
+  list-style-type: none;
+}
+
 .jumbotron {
     width: 100vw;
     background-position: center center;
@@ -19,20 +27,46 @@
 }
 
 .posts {
+    position: relative;
     height:400px;
     width:300px;
     border-radius: 10px ;
     margin-right:20px;
     margin-bottom:20px;
+    box-shadow: 2px 2px 4px;
+}
+
+.posts_image {
+    box-shadow: 0px 3px 4px black; 
+}
+
+.posts_image:hover {
+    box-shadow: 0px 8px 0px white; 
+    border-radius: 4px ;
+}
+
+.posts_text {
+    text-align: center;
+    margin:8px;
+}
+
+.posts_icon {
+    float: right;
+    margin: 3px;
+}
+
+.posts_deta {
+    position: absolute;
+    margin-left:8px;
+    font-size:13px;
 }
 
 .profile_backgroud {
-    height:550px;
+    height:500px;
     width:350px;
     margin-right:20px;
     border-radius: 40px ;
-    /*margin-bottom:20px;*/
-    /*padding:20px;*/
+    box-shadow: 2px 2px 4px;
 }
 
 .profile_image {
@@ -46,6 +80,7 @@
 
 .user_name {
     text-align: center;
+    color:white;
 }
 
 .button_follow { /* テストボタン用 */
@@ -68,4 +103,81 @@
     text-shadow: 1px 2px 3px #000;
     text-align: center;
     margin:380px 40px;
+}
+
+.show {
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    min-height:300px;
+    min-width:500px;
+    border-radius: 20px ;
+    box-shadow: 0px 20px 40px 40px #343436;
+    
+}
+
+.show_image {
+    box-shadow: 1px 1px 1px;
+    margin: 20px;
+}
+
+.show_text {
+    margin: 8px;
+    margin-left:20px;
+}
+
+.show_side {
+    position: relative;
+    /* #B8DCFF */
+    background-color: #B8DCFF;
+    margin:0 0 0 auto;
+    height:100%;
+    width:100%;
+    max-width:60px;
+    min-width:60px;
+    padding-left:25px;
+    border-radius: 0px 20px 20px 00px;
+}
+
+.show_side:hover {
+    /* #B8DCFF */
+    background-color: #73ace6;
+    box-shadow: 0px 0px 2px;
+
+}
+
+.show_side_text {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+
+}
+
+.my-gray {color: #ffb8db}
+
+.show_side_text2 {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    font-size:40px;
+    margin-top:100px;
+}
+
+
+.user_show {
+    width:100%;
 }
