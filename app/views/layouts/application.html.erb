@@ -37,6 +37,7 @@
                 
               <% elsif logged_in? %>
                 <%= render 'users/users_deta', user: current_user %>
+
                 
               <% else %>
                 <!-- 非ログイン時の新規登録案内 -->

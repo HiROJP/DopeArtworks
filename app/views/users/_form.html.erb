@@ -1,0 +1,4 @@
+<%= form_for(@user) do |f| %>
+  <%= f.file_field :image %>
+  <%= f.submit 'プロフィール編集を完了する', class: 'btn btn-primary' %>
+<% end %>
