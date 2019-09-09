@@ -61,7 +61,7 @@ gem 'carrierwave'
 
 gem 'rmagick'
 
-
+gem 'fog-aws'
 
 group :development, :test do
   gem 'pry-rails'  # rails console(もしくは、rails c)でirbの代わりにpryを使われる

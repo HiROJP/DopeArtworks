@@ -1,5 +1,5 @@
 class ImageUploader < CarrierWave::Uploader::Base
-  storage :file
+  storage :fog
 
   def store_dir
     "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
@@ -9,6 +9,10 @@ class ImageUploader < CarrierWave::Uploader::Base
   include CarrierWave::RMagick
   process :resize_to_limit => [1280, 1024]
   process :convert => 'jpg'
+  
+  def store_dir
+    "dope-image/#{model.id}"
+  end
   
   def extension_whitelist
     %w(jpg jpeg gif png)

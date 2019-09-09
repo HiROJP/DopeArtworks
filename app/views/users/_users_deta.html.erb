@@ -2,15 +2,18 @@
 <!-- ユーザ情報  -->
 <div class="profile_image"><img class="mr-2 rounded" src="<%= gravatar_url(user, { size: 350 }) %>" alt=""></div>
 <h2 class="user_name"><%= link_to(user) do %><%= user.name %><% end %></h2>
-<div class="button_follow">
-  <%= render 'relationships/follow_button', user: user %>
-  <%= render 'layouts/flash_messages' %>
-</div>
+
 
 <% if user == current_user %>
   <div>
     <div class="button_follow">
       <%= link_to '新規登録', new_path, class: 'btn btn-block btn-primary' %>
+      <%= render 'layouts/flash_messages' %>
     </div>
+  </div>
+<% else %>
+  <div class="button_follow">
+    <%= render 'relationships/follow_button', user: user %>
+    <%= render 'layouts/flash_messages' %>
   </div>
 <% end %>
