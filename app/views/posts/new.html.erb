@@ -4,10 +4,10 @@
     <%= form_with(model: @post, local: true) do |f| %>
       
       <div class="form-group">
-        <p class="text-white">アートワーク名（12文字まで）</p>
+        <p class="text-white">アートワーク名（15文字まで）</p>
         <%= f.text_area :content, class: 'form-control', rows: 1 %>
         <p class="text-white"><br>画像を選択</p>
-        <%= f.file_field :image %>
+        <%= f.file_field :image , class: "text-white" %>
       </div>
       <%= f.submit '投稿', class: 'btn btn-primary btn-block' %>
     <% end %>

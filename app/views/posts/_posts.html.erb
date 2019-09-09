@@ -31,12 +31,14 @@
           <h2><%= post.content %></h2> 
         </div>
         <ul class="posts_deta">
-          <li><span class="text-muted">投稿者: <%= post.user.name %></span></li>
+          <li><span class="text-muted">投稿者: <%= link_to(post.user) do %><%= post.user.name %><% end %></span></li>
           <li><span class="text-muted">投稿日: <%= post.created_at %></span></li>
         </ul>
-        <div class="posts_icon">
-          <%= link_to "詳細", post, class: 'btn btn-primary' %>
-        </div>
+        <% if logged_in? %>
+          <div class="posts_icon">
+            <%= render 'favorites/like_button', post: post %>
+          </div>
+        <% end %>
       </div>
     </li>
   </div>

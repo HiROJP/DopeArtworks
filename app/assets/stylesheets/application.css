@@ -1,3 +1,7 @@
+body {
+　　background-color: #000;
+}
+
 ul{
     padding : 0;
 }
@@ -102,11 +106,11 @@ li {
     position: absolute;
     text-shadow: 1px 2px 3px #000;
     text-align: center;
-    margin:380px 40px;
+    margin:320px 40px;
 }
 
 .show {
-    
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -119,8 +123,8 @@ li {
 }
 
 .show_image {
-    box-shadow: 1px 1px 1px;
     margin: 20px;
+    border : solid 2px #fff ;
 }
 
 .show_text {
@@ -130,14 +134,13 @@ li {
 
 .show_side {
     position: relative;
-    /* #B8DCFF */
-    background-color: #B8DCFF;
+    display: flex;
+    /* background-color: #B8DCFF; */
     margin:0 0 0 auto;
     height:100%;
     width:100%;
     max-width:60px;
     min-width:60px;
-    padding-left:25px;
     border-radius: 0px 20px 20px 00px;
 }
 
@@ -150,20 +153,54 @@ li {
 
 .show_side_text {
     position: absolute;
+    pointer-events: none;
     display: flex;
     justify-content: center;
     align-items: center;
     top: 0;
-    left: 0;
     right: 0;
     bottom: 0;
+    left: 0;
     margin: auto;
-
 }
 
-.my-gray {color: #ffb8db}
+.my-color {color: #fff}
 
-.show_side_text2 {
+.my-color2 {color: #ff6347}
+
+.user_show {
+    width:100%;
+}
+
+.show_like {
+    position: relative;
+    background-color: #B8DCFF;
+    border-radius: 0px 20px 20px 00px;
+    max-width:60px;
+    min-width:60px;
+}
+
+.show_like:hover {
+    /* #B8DCFF */
+    background-color: #73ace6;
+    box-shadow: 0px 0px 2px;
+}
+
+.show_liked {
+    color:white;
+    background-color: #ffb8ff;
+    border-radius: 0px 20px 20px 00px;
+    max-width:60px;
+    min-width:60px;
+}
+
+.show_liked:hover {
+    /* #B8DCFF */
+    background-color: #ff66ff;
+    box-shadow: 0px 0px 2px;
+}
+
+.show_like_icon {
     position: absolute;
     display: flex;
     justify-content: center;
@@ -173,11 +210,10 @@ li {
     right: 0;
     bottom: 0;
     margin: auto;
-    font-size:40px;
-    margin-top:100px;
+
 }
 
-
-.user_show {
-    width:100%;
+.like_button {
+    position: relative;
+    display: flex;
 }

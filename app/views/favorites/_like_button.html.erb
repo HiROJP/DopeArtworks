@@ -1,0 +1,21 @@
+<% if current_user.favpost?(post) %>
+  <%= form_for(current_user.favorites.find_by(post_id: post.id), html: { method: :delete }) do |f| %>
+    <%= hidden_field_tag :post_id, post.id %>
+    <div class="like_button">
+      <%= f.submit "     ", class: 'btn btn-primary' %>
+      <div class="show_side_text">
+        <i class="fas fa-heart fa-2x my-color2"></i>
+      </div>
+    </div>
+  <% end %>
+<% else %>
+  <%= form_for(current_user.favorites.build) do |f| %>
+    <%= hidden_field_tag :post_id, post.id %>
+    <div class="like_button">
+      <%= f.submit "     ", class: 'btn btn-primary' %>
+      <div class="show_side_text">
+        <i class="far fa-heart fa-2x my-color"></i>
+      </div>
+    </div>
+  <% end %>
+<% end %>

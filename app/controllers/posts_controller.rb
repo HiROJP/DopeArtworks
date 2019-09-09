@@ -2,7 +2,6 @@ class PostsController < ApplicationController
   before_action :correct_user, only: [:destroy]
   before_action :require_user_logged_in, only: [:new]
   def posts
-    #@posts = current_user.posts.order(id: :desc).page(params[:page])
     @posts = Post.all.page(params[:page])
   end
   
@@ -15,6 +14,7 @@ class PostsController < ApplicationController
   
   def show
     @post = Post.find(params[:id])
+    
     
     #user_idはただの割り当てられた数字（ID）にすぎないので、ユーザを特定する事は出来ない
     #その為、全てのユーザ（User.all）のIDと、postに含まれていたuser_idに一致するものがあるかeachとif文で特定する
@@ -30,19 +30,19 @@ class PostsController < ApplicationController
   def create
     @post = current_user.posts.build(post_params)
     if @post.save
-      flash[:success] = 'メッセージを投稿しました。'
+      flash[:success] = '投稿を投稿しました。'
       redirect_to root_url
     else
       @posts = current_user.posts.order(id: :desc).page(params[:page])
-      flash.now[:danger] = 'メッセージの投稿に失敗しました。'
-      render 'posts/post'
+      flash.now[:danger] = '投稿の投稿に失敗しました。'
+      render 'posts/new'
     end
   end
 
   def destroy
     @post.destroy
-    flash[:success] = 'メッセージを削除しました。'
-    redirect_back(fallback_location: root_path)
+    flash[:success] = '投稿を削除しました。'
+    redirect_to root_url
   end
 
   private

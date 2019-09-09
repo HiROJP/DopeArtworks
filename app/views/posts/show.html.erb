@@ -15,11 +15,45 @@
       <%= image_tag @post.image.url %>
     </div>
   </div>
+  
+  <%# if current_user.favpost?(@post) %>
+    <%#= button_to 'LOVED', favorite_url(post_id: @post.id), {method: :delete} %>
+  <%# else %>
+    <%#= button_to 'LOVE', favorites_url(post_id: @post.id), {method: :post} %>
+  <%# end %>
+  
+  <% if logged_in? %>
+    <% if current_user.favpost?(@post) %>
+      <%= form_for(current_user.favorites.find_by(post_id: @post.id), html: { method: :delete, class: "show_side" }) do |f| %>
+        <%= hidden_field_tag :post_id, @post.id %>
+        <div class="show_side">
+          <%= button_to '',favorites_url(post_id: @post.id), {class: 'btn show_liked'}  %>
+          <div class="show_side_text">
+            <i class="fas fa-heart fa-3x my-color2"></i>
+          </div>
+        </div>
+      <% end %>
+    <% else %>
+      <%= form_for(current_user.favorites.build, html: { class: "show_side" }) do |f| %>
+        <%= hidden_field_tag :post_id, @post.id %>
+        <div class="show_side">
+          <%= button_to '',favorites_url(post_id: @post.id), {class: 'btn show_like'}  %>
+          <div class="show_side_text">
+            <i class="far fa-heart fa-3x my-color"></i>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  <% end %>
+  
+  <!-- 
   <div class="show_side">
     <div class="show_side_text">
       <i class="fas fa-heart fa-3x my-gray"></i>
       <p class="show_side_text2">0</p>
     </div>
   </div>
+  -->
+
 </div>
 
