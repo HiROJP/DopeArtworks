@@ -34,11 +34,8 @@
               
               <% if content_for?(:side_user) && logged_in? %>
                 <%= render 'users/users_deta', user: @user %>
-                
               <% elsif logged_in? %>
                 <%= render 'users/users_deta', user: current_user %>
-                
-                
               <% else %>
                 <!-- 非ログイン時の新規登録案内 -->
                 <div class="nologin_top_image">
