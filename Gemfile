@@ -69,3 +69,7 @@ group :development, :test do
   gem 'pry-byebug' # デバッグを実施(Ruby 2.0以降で動作する)
   gem 'pry-stack_explorer' # スタックをたどれる
 end
+
+group :production do
+  gem 'pg', '>= 0.18', '< 2.0'
+end
