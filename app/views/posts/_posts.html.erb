@@ -11,7 +11,7 @@
           <% end %>
         <% end %>
         <div class="posts_text text-white">
-          <h2><%= post.content %></h2> 
+          <h2 class="posts_title"><%= post.content %></h2> 
         </div>
         <ul class="posts_deta">
           <li><span class="text-muted">投稿者: <%= link_to(post.user) do %><%= post.user.name %><% end %></span></li>
